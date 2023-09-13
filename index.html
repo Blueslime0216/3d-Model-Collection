@@ -84,8 +84,8 @@
                 let deltaMoveY = currentTouchEvent.clientY - previousTouchEvent.clientY;
 
                 // 이전 터치 위치와 현재 터치 위치의 차이에 따라 오브젝트 회전
-                object.rotation.y += deltaMoveX * 0.01;
-                object.rotation.x += deltaMoveY * 0.01;
+                object.rotation.y += deltaMoveX * 0.005;
+                object.rotation.x += deltaMoveY * 0.005;
 
                 renderer.render(scene, camera);
 
