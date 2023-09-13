@@ -13,6 +13,7 @@
             transform: translate(-50%,-50%);
             left: 50vw;
             top: 50vh;
+            width: min(75vw, 75vh);
             border: red 1px solid;
         }
         #arrow_left{
@@ -26,7 +27,7 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas" width="500" height="500"></canvas>
+    <canvas id="canvas" width="1080" height="1080"></canvas>
     <img id="arrow_left" src="resource/arrow.png" onclick="">
 
     <script type="importmap">
@@ -42,8 +43,9 @@
         import * as THREE from 'three';
 
         let scene = new THREE.Scene();
+        const canvas = document.querySelector('#canvas')
         let renderer = new THREE.WebGLRenderer({
-            canvas: document.querySelector('#canvas'),
+            canvas: canvas,
             antialias : true,
             alpha : true,
         });
@@ -109,6 +111,7 @@
                     // 마우스 드래그 중이 아닐 때 회전
                     object.rotation.y -= 0.01;
                 }
+                
                 renderer.render(scene, camera);
             }
             animate();
