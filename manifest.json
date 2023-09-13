@@ -1,14 +1,14 @@
 {
-"short_name": "Donhae Dooly's App",
-"name": "Donhae Dooly",
-"icons": [
+  "short_name": "Kinlan's Amaze App",
+  "name": "Kinlan's Amazing Application ++",
+  "icons": [
     {
-    "src": "myicon.png",
-    "sizes": "192x192",
-    "type": "image/png"
+      "src": "launcher-icon-4x.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
-],
-"start_url": "/index.html",
-"display": "standalone",
-"orientation": "landscape"
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "landscape"
 }
