@@ -13,8 +13,18 @@
             transform: translate(-50%,-50%);
             left: 50vw;
             top: 50vh;
-            width: min(75vw, 75vh);
+            width: min(100vw, 100vh);
             border: red 1px solid;
+        }
+        #title{
+            position: fixed;
+            transform: translate(-50%,-50%);
+            left: 50vw;
+            top: 2.5vh;
+            color: white;
+            z-index: 100;
+            font-size: 5em;
+            font-weight: bold;
         }
         #arrow_left{
             position: fixed;
@@ -28,7 +38,8 @@
 </head>
 <body>
     <canvas id="canvas" width="1080" height="1080"></canvas>
-    <img id="arrow_left" src="resource/arrow.png" onclick="">
+    <img id="arrow_left" src="resource/arrow.png" onclick="before()">
+    <p id="title">아이스크림</p>
 
     <script type="importmap">
         {
@@ -37,6 +48,26 @@
                 "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
             }
         }
+    </script>
+    <script>
+        let now_obj = 0
+        let model_name_list = ['아이스크림','커피잔','생수병','화분','고구마','손전등','도마','레몬','막대사탕','냥이 책','모기향','양말','선글라스']
+        
+                function before(){
+                    if (now_obj - 1 < 0){
+                        now_obj = model_name_list.length
+                    } else {
+                        now_obj -= 1
+                    }
+                    console.log(now_obj)
+                }
+                function next(){
+                    if (now_obj + 1 > model_name_list.length){
+                        now_obj = 0
+                    } else {
+                        now_obj += 1
+                    }
+                }
     </script>
     <script type="module">
         import {GLTFLoader} from 'GLTFLoader';
@@ -107,6 +138,6 @@
             }
             animate();
         });
-    </script>
+    </>
 </body>
 </html>
