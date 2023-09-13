@@ -64,51 +64,42 @@
             renderer.render(scene, camera);
 
             let isDragging = false;
-            let previousMousePosition = {
-                x: 0,
-                y: 0
-            };
+            let previousTouchEvent = null;
 
-            function handleMouseDown(event) {
+            function handleTouchStart(event) {
                 isDragging = true;
-                previousMousePosition = {
-                    x: event.clientX,
-                    y: event.clientY
-                };
+                previousTouchEvent = event.touches[0];
             }
 
-            function handleMouseUp() {
+            function handleTouchEnd() {
                 isDragging = false;
+                previousTouchEvent = null;
             }
 
-            function handleMouseMove(event) {
-                if (!isDragging) return;
+            function handleTouchMove(event) {
+                if (!isDragging || !previousTouchEvent) return;
 
-                let deltaMove = {
-                    x: event.clientX - previousMousePosition.x,
-                    y: event.clientY - previousMousePosition.y
-                };
+                let currentTouchEvent = event.touches[0];
+                let deltaMoveX = currentTouchEvent.clientX - previousTouchEvent.clientX;
+                let deltaMoveY = currentTouchEvent.clientY - previousTouchEvent.clientY;
 
-                // 이전 마우스 위치와 현재 마우스 위치의 차이에 따라 오브젝트 회전
-                object.rotation.y += deltaMove.x * 0.01;
-                object.rotation.x += deltaMove.y * 0.01;
+                // 이전 터치 위치와 현재 터치 위치의 차이에 따라 오브젝트 회전
+                object.rotation.y += deltaMoveX * 0.01;
+                object.rotation.x += deltaMoveY * 0.01;
 
                 renderer.render(scene, camera);
 
-                previousMousePosition = {
-                    x: event.clientX,
-                    y: event.clientY
-                };
+                previousTouchEvent = currentTouchEvent;
             }
 
-            document.addEventListener('mousedown', handleMouseDown);
-            document.addEventListener('mouseup', handleMouseUp);
-            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('touchstart', handleTouchStart);
+            document.addEventListener('touchend', handleTouchEnd);
+            document.addEventListener('touchmove', handleTouchMove);
 
             function animate(){
                 requestAnimationFrame(animate)
                 if (!isDragging) {
-                    // 마우스 드래그 중이 아닐 때 회전
+                    // 터치 드래그 중이 아닐 때 회전
                     object.rotation.y -= 0.01;
                 }
                 
