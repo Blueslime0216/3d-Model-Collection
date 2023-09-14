@@ -14,7 +14,6 @@
             left: 50vw;
             top: 50vh;
             width: min(100vw, 100vh);
-            border: red 1px solid;
         }
         #title{
             position: fixed;
@@ -34,12 +33,22 @@
             top: 50vh;
             width: 10vw;
             cursor: pointer;
+
+        }
+        #arrow_right{
+            position: fixed;
+            transform: translate(-50%,-50%) rotate(180deg);
+            right: 0vw;
+            top: 50vh;
+            width: 10vw;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <canvas id="canvas" width="1080" height="1080"></canvas>
     <img id="arrow_left" src="resource/arrow.png" onclick="before()">
+    <img id="arrow_right" src="resource/arrow.png" onclick="next()">
     <p id="title">아이스크림</p>
 
     <script type="importmap">
@@ -125,6 +134,8 @@
             } else {
                 now_obj += 1
             }
+            console.log(now_obj)
+            needUpdate = true;
         }
     </script>
     <script type="module">
@@ -147,9 +158,8 @@
         let loader = new GLTFLoader();
         let object;
 
-        loader.load('resource/3dModel/002_coffee.gltf', function (gltf) {
+        loader.load('resource/3dModel/001_icecream.gltf', function (gltf) {
             object = gltf.scene;
-            object.rotation.z += 50;
             scene.add(object);
             renderer.render(scene, camera);
             
@@ -157,7 +167,6 @@
             let previousTouchEvent = null;
             
             function handleTouchStart(event) {
-                object.rotation.z = 0;
                 isDragging = true;
                 previousTouchEvent = event.touches[0];
             }
