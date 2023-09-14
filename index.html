@@ -73,47 +73,47 @@
                 background: "#555555",
                 location : "002_coffee"
             },{
-                name : "아이스크림",
+                name : "생수병",
                 background: "#111111",
                 location : "003_waterBottle"
             },{
-                name : "아이스크림",
+                name : "화분",
                 background: "#111111",
                 location : "005_pot"
             },{
-                name : "아이스크림",
+                name : "고구마",
                 background: "#111111",
                 location : "006_sweetPotato"
             },{
-                name : "아이스크림",
+                name : "손전등",
                 background: "#111111",
                 location : "007_light"
             },{
-                name : "아이스크림",
+                name : "도마",
                 background: "#111111",
                 location : "008_woodPlane"
             },{
-                name : "아이스크림",
+                name : "레몬",
                 background: "#111111",
                 location : "009_lemon"
             },{
-                name : "아이스크림",
+                name : "막대사탕",
                 background: "#111111",
                 location : "010_stickCandy"
             },{
-                name : "아이스크림",
+                name : "책이다냥",
                 background: "#111111",
                 location : "011_catBook"
             },{
-                name : "아이스크림",
+                name : "모기향",
                 background: "#111111",
                 location : "012_mosquitoRepellent"
             },{
-                name : "아이스크림",
+                name : "양말",
                 background: "#111111",
                 location : "013_socks"
             },{
-                name : "아이스크림",
+                name : "선슬라스",
                 background: "#111111",
                 location : "014_sunglass"
             },
@@ -141,7 +141,8 @@
     <script type="module">
         import {GLTFLoader} from 'GLTFLoader';
         import * as THREE from 'three';
-
+        
+        const title = document.querySelector('#canvas')
         let scene = new THREE.Scene();
         const canvas = document.querySelector('#canvas')
         let renderer = new THREE.WebGLRenderer({
