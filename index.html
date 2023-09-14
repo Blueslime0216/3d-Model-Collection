@@ -9,7 +9,7 @@
             -webkit-tap-highlight-color : transparent;
         }
         body{
-            background-color: #9bb6d4;
+            background-color: #c095d4;
             overscroll-behavior: contain;
             transition: all 0.3s linear;
         }
@@ -40,7 +40,7 @@
             top: 55vh;
             width: 10vw;
             cursor: pointer;
-
+            filter: drop-shadow(0 0 20px #000000);
         }
         #arrow_right{
             position: fixed;
@@ -49,6 +49,24 @@
             top: 55vh;
             width: 10vw;
             cursor: pointer;
+            filter: drop-shadow(0 0 20px #000000);
+        }
+        #step{
+            position: fixed;
+            transform: translate(-50%,-50%);
+            left: 50vw;
+            bottom: 5vh;
+            width: 80vw;
+            height: auto;
+            justify-content: space-between;
+            display: flex;
+        }
+        .circle{
+            width: 2vw;
+            height: 2vw;
+            border-radius: 1vw;
+            background-color: #919191;
+            filter: drop-shadow(0 0 5px #000000);
         }
     </style>
 </head>
@@ -56,7 +74,8 @@
     <canvas id="canvas" width="1080" height="1080"></canvas>
     <img id="arrow_left" src="resource/arrow.png" onclick="before()">
     <img id="arrow_right" src="resource/arrow.png" onclick="next()">
-    <p id="title">커피잔</p>
+    <p id="title">아이스크림</p>
+    <div id="step"></div>
 
     <script type="importmap">
         {
@@ -67,10 +86,12 @@
         }
     </script>
     <script>
+        let imsi = null;
+        const title = document.querySelector('#title')
+        const step = document.querySelector('#step')
         let notDragTime = 0;
         let needUpdate = false;
-        let now_obj = 1
-        // let model_name_list = ['아이스크림','커피잔','생수병','화분','고구마','손전등','도마','레몬','막대사탕','냥이 책','모기향','양말','선글라스']
+        let now_obj = 0;
         let model_list = [
             {
                 name : "아이스크림",
@@ -126,24 +147,48 @@
                 location : "014_sunglass"
             },
         ]
+        for (let i = 0; i < model_list.length; i++) {
+            // 동적, 원형 요소 생성
+            let circle = document.createElement('div');
+            circle.className = 'circle';
+            circle.id = `index_${i}`; // 요소의 텍스트 내용을 리스트의 항목으로 설정
+
+            // 생성된 원형을 stepContainer에 추가
+            step.appendChild(circle);
+        }
         
         function before(){
+            imsi = document.querySelector(`#index_${now_obj}`)
+            imsi.style.backgroundColor = "#919191";
+
             if (now_obj - 1 < 0){
                 now_obj = model_list.length - 1
             } else {
                 now_obj -= 1
             }
-            // 장면 업데이트?하기
+
+            // 하단바에 현재 오브젝트 순서 보여주는 코드
+            imsi = document.querySelector(`#index_${now_obj}`)
+            imsi.style.backgroundColor = "#78ff83";
+
+            // 장면 업데이트? 요청보내기
             needUpdate = true;
         }
         function next(){
+            imsi = document.querySelector(`#index_${now_obj}`)
+            imsi.style.backgroundColor = "#919191";
+
             if (now_obj + 1 >= model_list.length){
                 now_obj = 0
             } else {
                 now_obj += 1
             }
-            console.log(`${now_obj + 1}, ${model_list.length}`)
-            // 장면 업데이트?하기
+            
+            // 하단바에 현재 오브젝트 순서 보여주는 코드
+            imsi = document.querySelector(`#index_${now_obj}`)
+            imsi.style.backgroundColor = "#78ff83";
+
+            // 장면 업데이트? 요청보내기
             needUpdate = true;
         }
     </script>
@@ -151,7 +196,6 @@
         import {GLTFLoader} from 'GLTFLoader';
         import * as THREE from 'three';
         
-        const title = document.querySelector('#title')
         let scene = new THREE.Scene();
         const canvas = document.querySelector('#canvas')
         let renderer = new THREE.WebGLRenderer({
@@ -168,7 +212,7 @@
         let loader = new GLTFLoader();
         let object;
 
-        loader.load('resource/3dModel/002_coffee.gltf', function (gltf) {
+        loader.load('resource/3dModel/001_icecream.gltf', function (gltf) {
             object = gltf.scene;
             scene.add(object);
             renderer.render(scene, camera);
@@ -208,6 +252,8 @@
             document.addEventListener('touchend', handleTouchEnd);
             document.addEventListener('touchmove', handleTouchMove);
 
+            next()
+
             function animate(){
                 requestAnimationFrame(animate)
                 if (!isDragging) {
@@ -220,15 +266,16 @@
                 }
 
                 if(needUpdate){
+                    scene = new THREE.Scene();
                     console.log(`오브젝트 업데이트, 경로:resource/3dModel/${model_list[now_obj].location}.gltf`);
                     loader.load(`resource/3dModel/${model_list[now_obj].location}.gltf`, function (gltf2){
-                        scene = new THREE.Scene();
                         object = gltf2.scene;
                         title.innerHTML = model_list[now_obj].name;
                         document.body.style.backgroundColor = model_list[now_obj].background;
                         scene.add(object);
                     });
 
+                    
                     // 오브젝트 회전하게 하기
                     notDragTime = 100;
                     needUpdate = false;
