@@ -267,14 +267,14 @@
 
                 if(needUpdate){
                     scene = new THREE.Scene();
-                    console.log(`오브젝트 업데이트, 경로:resource/3dModel/${model_list[now_obj].location}.gltf`);
+                    title.innerHTML = model_list[now_obj].name;
+                    document.body.style.backgroundColor = model_list[now_obj].background;
                     loader.load(`resource/3dModel/${model_list[now_obj].location}.gltf`, function (gltf2){
                         scene = new THREE.Scene();
                         object = gltf2.scene;
-                        title.innerHTML = model_list[now_obj].name;
-                        document.body.style.backgroundColor = model_list[now_obj].background;
                         scene.add(object);
                     });
+                    // console.log(`오브젝트 업데이트, 경로:resource/3dModel/${model_list[now_obj].location}.gltf`);
 
                     
                     // 오브젝트 회전하게 하기
