@@ -8,53 +8,23 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0,
-				1
+				0
 			]
 		}
 	],
 	"nodes":[
 		{
-			"name":"Outline",
-			"translation":[
-				-19,
-				0,
-				0
-			]
-		},
-		{
 			"mesh":0,
 			"name":"Coffee",
 			"scale":[
-				2,
-				2,
-				2
+				1.7063229084014893,
+				1.7063229084014893,
+				1.7063229084014893
 			],
 			"translation":[
 				0,
-				-2,
+				-1.7063229084014893,
 				0
-			]
-		}
-	],
-	"animations":[
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":1,
-						"path":"rotation"
-					}
-				}
-			],
-			"name":"CoffeeAction",
-			"samplers":[
-				{
-					"input":8,
-					"interpolation":"LINEAR",
-					"output":9
-				}
 			]
 		}
 	],
@@ -187,24 +157,6 @@
 			"componentType":5123,
 			"count":84,
 			"type":"SCALAR"
-		},
-		{
-			"bufferView":8,
-			"componentType":5126,
-			"count":101,
-			"max":[
-				4.166666666666667
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":9,
-			"componentType":5126,
-			"count":101,
-			"type":"VEC4"
 		}
 	],
 	"bufferViews":[
@@ -255,21 +207,11 @@
 			"byteLength":168,
 			"byteOffset":8124,
 			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":404,
-			"byteOffset":8292
-		},
-		{
-			"buffer":0,
-			"byteLength":1616,
-			"byteOffset":8696
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":10312,
+			"byteLength":8292,
 			"uri":"002_coffee.bin"
 		}
 	]

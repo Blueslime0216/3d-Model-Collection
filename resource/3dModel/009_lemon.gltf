@@ -8,23 +8,19 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0,
-				1
+				0
 			]
 		}
 	],
 	"nodes":[
 		{
-			"name":"Outline",
-			"translation":[
-				-19,
-				0,
-				0
-			]
-		},
-		{
 			"mesh":0,
-			"name":"Cube"
+			"name":"Cube",
+			"scale":[
+				1.8620214462280273,
+				1.8620214462280273,
+				1.8620214462280273
+			]
 		}
 	],
 	"animations":[
@@ -33,7 +29,7 @@
 				{
 					"sampler":0,
 					"target":{
-						"node":1,
+						"node":0,
 						"path":"rotation"
 					}
 				}
@@ -56,7 +52,7 @@
 				0.668316125869751,
 				0.07915844768285751
 			],
-			"name":"test",
+			"name":"test.001",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0,
@@ -69,7 +65,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cube",
+			"name":"Cube.002",
 			"primitives":[
 				{
 					"attributes":{
