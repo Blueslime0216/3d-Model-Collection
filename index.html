@@ -25,6 +25,7 @@
             z-index: 100;
             font-size: 5em;
             font-weight: bold;
+            word-break: keep-all;
         }
         #arrow_left{
             position: fixed;
@@ -49,26 +50,83 @@
             }
         }
     </script>
-    <!-- <script>
+    <script>
+        let needUpdate = false;
         let now_obj = 0
-        let model_name_list = ['아이스크림','커피잔','생수병','화분','고구마','손전등','도마','레몬','막대사탕','냥이 책','모기향','양말','선글라스']
+        // let model_name_list = ['아이스크림','커피잔','생수병','화분','고구마','손전등','도마','레몬','막대사탕','냥이 책','모기향','양말','선글라스']
+        let model_list = [
+            {
+                name : "아이스크림",
+                background: "#111111",
+                location : "001_icecream"
+            },{
+                name : "커피잔",
+                background: "#555555",
+                location : "002_coffee"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "003_waterBottle"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "005_pot"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "006_sweetPotato"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "007_light"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "008_woodPlane"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "009_lemon"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "010_stickCandy"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "011_catBook"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "012_mosquitoRepellent"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "013_socks"
+            },{
+                name : "아이스크림",
+                background: "#111111",
+                location : "014_sunglass"
+            },
+        ]
         
-                function before(){
-                    if (now_obj - 1 < 0){
-                        now_obj = model_name_list.length
-                    } else {
-                        now_obj -= 1
-                    }
-                    console.log(now_obj)
-                }
-                function next(){
-                    if (now_obj + 1 > model_name_list.length){
-                        now_obj = 0
-                    } else {
-                        now_obj += 1
-                    }
-                }
-    </script> -->
+        function before(){
+            if (now_obj - 1 < 0){
+                now_obj = model_list.length - 1
+            } else {
+                now_obj -= 1
+            }
+            console.log(now_obj)
+            needUpdate = true;
+        }
+        function next(){
+            if (now_obj + 1 > model_list.length){
+                now_obj = 0
+            } else {
+                now_obj += 1
+            }
+        }
+    </script>
     <script type="module">
         import {GLTFLoader} from 'GLTFLoader';
         import * as THREE from 'three';
@@ -89,15 +147,17 @@
         let loader = new GLTFLoader();
         let object;
 
-        loader.load('resource/3dModel/005_pot.gltf', function (gltf) {
+        loader.load('resource/3dModel/002_coffee.gltf', function (gltf) {
             object = gltf.scene;
+            object.rotation.z += 50;
             scene.add(object);
             renderer.render(scene, camera);
-
+            
             let isDragging = false;
             let previousTouchEvent = null;
-
+            
             function handleTouchStart(event) {
+                object.rotation.z = 0;
                 isDragging = true;
                 previousTouchEvent = event.touches[0];
             }
@@ -132,6 +192,17 @@
                 if (!isDragging) {
                     // 터치 드래그 중이 아닐 때 회전
                     object.rotation.y -= 0.01;
+                }
+
+                if(needUpdate){
+                    console.log(`오브젝트 업데이트, 경로:resource/3dModel/${model_list[now_obj].location}.gltf`);
+                    loader.load(`resource/3dModel/${model_list[now_obj].location}.gltf`, function (gltf2){
+                        scene = new THREE.Scene();
+                        object = gltf2.scene;
+                        scene.add(object);
+                    });
+
+                    needUpdate = false;
                 }
                 
                 renderer.render(scene, camera);
