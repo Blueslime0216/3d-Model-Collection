@@ -24,18 +24,7 @@
 		},
 		{
 			"mesh":0,
-			"name":"Cube",
-			"rotation":[
-				0.32145822048187256,
-				0,
-				0,
-				0.9469237923622131
-			],
-			"scale":[
-				1.9774188995361328,
-				1.9774188995361328,
-				1.9774188995361328
-			]
+			"name":"Cube"
 		}
 	],
 	"animations":[
@@ -49,7 +38,7 @@
 					}
 				}
 			],
-			"name":"CubeAction",
+			"name":"CubeAction.001",
 			"samplers":[
 				{
 					"input":4,
@@ -132,19 +121,19 @@
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":101,
+			"count":1,
 			"max":[
-				4.166666666666667
+				0.041666666666666664
 			],
 			"min":[
-				0
+				0.041666666666666664
 			],
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":101,
+			"count":1,
 			"type":"VEC4"
 		}
 	],
@@ -175,18 +164,18 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":404,
+			"byteLength":4,
 			"byteOffset":9472
 		},
 		{
 			"buffer":0,
-			"byteLength":1616,
-			"byteOffset":9876
+			"byteLength":16,
+			"byteOffset":9476
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":11492,
+			"byteLength":9492,
 			"uri":"009_lemon.bin"
 		}
 	]

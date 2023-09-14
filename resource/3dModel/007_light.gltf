@@ -8,54 +8,18 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0,
-				1
+				0
 			]
 		}
 	],
 	"nodes":[
 		{
-			"name":"Outline",
-			"translation":[
-				-19,
-				0,
-				0
-			]
-		},
-		{
 			"mesh":0,
 			"name":"\uc190\uc804\ub4f1",
-			"rotation":[
-				-0.07850145548582077,
-				0.49245285987854004,
-				-0.33877480030059814,
-				0.7978466749191284
-			],
 			"scale":[
 				0.6000000834465027,
 				0.6000000238418579,
 				0.6000000238418579
-			]
-		}
-	],
-	"animations":[
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":1,
-						"path":"rotation"
-					}
-				}
-			],
-			"name":"\uc190\uc804\ub4f1Action",
-			"samplers":[
-				{
-					"input":8,
-					"interpolation":"LINEAR",
-					"output":9
-				}
 			]
 		}
 	],
@@ -82,8 +46,8 @@
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
-				0.809721827507019,
-				0.17047163844108582
+				0.6856345534324646,
+				0.12322243303060532
 			],
 			"name":"\ube5b",
 			"pbrMetallicRoughness":{
@@ -189,24 +153,6 @@
 			"componentType":5123,
 			"count":18,
 			"type":"SCALAR"
-		},
-		{
-			"bufferView":8,
-			"componentType":5126,
-			"count":101,
-			"max":[
-				4.166666666666667
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":9,
-			"componentType":5126,
-			"count":101,
-			"type":"VEC4"
 		}
 	],
 	"bufferViews":[
@@ -257,21 +203,11 @@
 			"byteLength":36,
 			"byteOffset":4516,
 			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":404,
-			"byteOffset":4552
-		},
-		{
-			"buffer":0,
-			"byteLength":1616,
-			"byteOffset":4956
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":6572,
+			"byteLength":4552,
 			"uri":"007_light.bin"
 		}
 	]

@@ -8,69 +8,14 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0,
-				1,
-				2
+				0
 			]
 		}
 	],
 	"nodes":[
 		{
-			"name":"Outline",
-			"translation":[
-				-19,
-				0,
-				0
-			]
-		},
-		{
 			"mesh":0,
-			"name":"Cube",
-			"rotation":[
-				0.11162567138671875,
-				-0.030646223574876785,
-				0.18874873220920563,
-				0.9751791954040527
-			],
-			"scale":[
-				1.1294324398040771,
-				1.129432201385498,
-				1.129432201385498
-			],
-			"translation":[
-				0,
-				-0.02614891529083252,
-				0
-			]
-		},
-		{
-			"name":"Empty",
-			"scale":[
-				10,
-				10,
-				10
-			]
-		}
-	],
-	"animations":[
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":2,
-						"path":"rotation"
-					}
-				}
-			],
-			"name":"EmptyAction",
-			"samplers":[
-				{
-					"input":8,
-					"interpolation":"LINEAR",
-					"output":9
-				}
-			]
+			"name":"Cube"
 		}
 	],
 	"materials":[
@@ -202,24 +147,6 @@
 			"componentType":5123,
 			"count":54,
 			"type":"SCALAR"
-		},
-		{
-			"bufferView":8,
-			"componentType":5126,
-			"count":101,
-			"max":[
-				4.166666666666667
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":9,
-			"componentType":5126,
-			"count":101,
-			"type":"VEC4"
 		}
 	],
 	"bufferViews":[
@@ -270,21 +197,11 @@
 			"byteLength":108,
 			"byteOffset":8036,
 			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":404,
-			"byteOffset":8144
-		},
-		{
-			"buffer":0,
-			"byteLength":1616,
-			"byteOffset":8548
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":10164,
+			"byteLength":8144,
 			"uri":"010_stickCandy.bin"
 		}
 	]

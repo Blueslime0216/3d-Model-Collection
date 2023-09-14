@@ -8,54 +8,19 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0,
-				1
+				0
 			]
 		}
 	],
 	"nodes":[
 		{
-			"name":"Outline",
-			"translation":[
-				-19,
-				0,
-				0
-			]
-		},
-		{
 			"mesh":0,
 			"name":"Cube",
 			"rotation":[
-				-0.3326377868652344,
-				-0.09953835606575012,
-				-0.7863573431968689,
-				0.5109663009643555
-			],
-			"scale":[
-				1.1776180267333984,
-				1.1776180267333984,
-				1.177618145942688
-			]
-		}
-	],
-	"animations":[
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":1,
-						"path":"rotation"
-					}
-				}
-			],
-			"name":"CubeAction",
-			"samplers":[
-				{
-					"input":4,
-					"interpolation":"LINEAR",
-					"output":5
-				}
+				0,
+				0,
+				-1,
+				1.4901161193847656e-07
 			]
 		}
 	],
@@ -128,24 +93,6 @@
 			"componentType":5123,
 			"count":402,
 			"type":"SCALAR"
-		},
-		{
-			"bufferView":4,
-			"componentType":5126,
-			"count":101,
-			"max":[
-				4.166666666666667
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":5,
-			"componentType":5126,
-			"count":101,
-			"type":"VEC4"
 		}
 	],
 	"bufferViews":[
@@ -172,21 +119,11 @@
 			"byteLength":804,
 			"byteOffset":7744,
 			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":404,
-			"byteOffset":8548
-		},
-		{
-			"buffer":0,
-			"byteLength":1616,
-			"byteOffset":8952
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":10568,
+			"byteLength":8548,
 			"uri":"008_woodPlane.bin"
 		}
 	]

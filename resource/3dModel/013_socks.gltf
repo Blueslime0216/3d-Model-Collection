@@ -9,67 +9,49 @@
 			"name":"Scene",
 			"nodes":[
 				0,
-				1,
-				2
+				1
 			]
 		}
 	],
 	"nodes":[
 		{
-			"name":"Outline",
-			"translation":[
-				-19,
-				0,
-				0
-			]
-		},
-		{
 			"mesh":0,
 			"name":"Cube",
 			"rotation":[
-				0.027892552316188812,
-				-0.2577863335609436,
-				-0.1848306506872177,
-				0.9479482173919678
+				0.023341067135334015,
+				-0.20829881727695465,
+				-0.03563711419701576,
+				0.9771371483802795
 			],
 			"scale":[
-				2.1575284004211426,
-				2.1575284004211426,
-				2.1575281620025635
+				1.5000001192092896,
+				1.5000001192092896,
+				1.5000001192092896
 			],
 			"translation":[
-				-0.33708053827285767,
-				-0.46040549874305725,
-				0.2954632043838501
+				-0.16768047213554382,
+				0.005539983045309782,
+				-0.3344880938529968
 			]
 		},
 		{
-			"name":"Empty",
-			"scale":[
-				10,
-				10,
-				10
-			]
-		}
-	],
-	"animations":[
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":2,
-						"path":"rotation"
-					}
-				}
+			"mesh":1,
+			"name":"Cube.001",
+			"rotation":[
+				-0.023841509595513344,
+				-0.20716363191604614,
+				0.0206107497215271,
+				0.977798581123352
 			],
-			"name":"EmptyAction",
-			"samplers":[
-				{
-					"input":4,
-					"interpolation":"LINEAR",
-					"output":5
-				}
+			"scale":[
+				1.5,
+				1.4999998807907104,
+				1.5000001192092896
+			],
+			"translation":[
+				0.278020977973938,
+				-0.005539965350180864,
+				0.15268893539905548
 			]
 		}
 	],
@@ -106,101 +88,133 @@
 					"material":0
 				}
 			]
+		},
+		{
+			"name":"Cube.001",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":4,
+						"NORMAL":5,
+						"TEXCOORD_0":6
+					},
+					"indices":3,
+					"material":0
+				}
+			]
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":150,
+			"count":75,
 			"max":[
-				0.40823423862457275,
-				1.3815261125564575,
-				0.8004450798034668
+				0.09999997913837433,
+				1,
+				0.9999998807907104
 			],
 			"min":[
-				-0.32360565662384033,
-				-0.6782304048538208,
-				-0.8276963233947754
+				-0.09999997913837433,
+				-1,
+				-0.39999982714653015
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":150,
+			"count":75,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":150,
+			"count":75,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":312,
+			"count":156,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":101,
+			"count":75,
 			"max":[
-				4.166666666666667
+				0.09999997913837433,
+				1,
+				0.9999998807907104
 			],
 			"min":[
-				0
+				-0.09999997913837433,
+				-1,
+				-0.39999982714653015
 			],
-			"type":"SCALAR"
+			"type":"VEC3"
 		},
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":101,
-			"type":"VEC4"
+			"count":75,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":6,
+			"componentType":5126,
+			"count":75,
+			"type":"VEC2"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":1800,
+			"byteLength":900,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1800,
+			"byteLength":900,
+			"byteOffset":900,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":600,
 			"byteOffset":1800,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1200,
-			"byteOffset":3600,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":624,
-			"byteOffset":4800,
+			"byteLength":312,
+			"byteOffset":2400,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":404,
-			"byteOffset":5424
+			"byteLength":900,
+			"byteOffset":2712,
+			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1616,
-			"byteOffset":5828
+			"byteLength":900,
+			"byteOffset":3612,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":600,
+			"byteOffset":4512,
+			"target":34962
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":7444,
+			"byteLength":5112,
 			"uri":"013_socks.bin"
 		}
 	]

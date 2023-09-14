@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <head>
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <link rel="manifest" href="/manifest.json">
     <title>3D Model</title>
     <style>
-        html, body{
-            background-color: #383838;
+        *{
+            -webkit-tap-highlight-color : transparent;
+        }
+        body{
+            background-color: #9bb6d4;
             overscroll-behavior: contain;
+            transition: all 0.3s linear;
         }
         #canvas{
             position: fixed;
             transform: translate(-50%,-50%);
             left: 50vw;
-            top: 50vh;
+            top: 55vh;
             width: min(100vw, 100vh);
+            filter: drop-shadow(0 0 10px #000000);
         }
         #title{
             position: fixed;
@@ -25,12 +31,13 @@
             font-size: 5em;
             font-weight: bold;
             word-break: keep-all;
+            filter: drop-shadow(0 0 20px #000000);
         }
         #arrow_left{
             position: fixed;
             transform: translate(-50%,-50%);
             left: 10vw;
-            top: 50vh;
+            top: 55vh;
             width: 10vw;
             cursor: pointer;
 
@@ -39,7 +46,7 @@
             position: fixed;
             transform: translate(-50%,-50%) rotate(180deg);
             right: 0vw;
-            top: 50vh;
+            top: 55vh;
             width: 10vw;
             cursor: pointer;
         }
@@ -49,7 +56,7 @@
     <canvas id="canvas" width="1080" height="1080"></canvas>
     <img id="arrow_left" src="resource/arrow.png" onclick="before()">
     <img id="arrow_right" src="resource/arrow.png" onclick="next()">
-    <p id="title">아이스크림</p>
+    <p id="title">커피잔</p>
 
     <script type="importmap">
         {
@@ -60,29 +67,30 @@
         }
     </script>
     <script>
+        let notDragTime = 0;
         let needUpdate = false;
-        let now_obj = 0
+        let now_obj = 1
         // let model_name_list = ['아이스크림','커피잔','생수병','화분','고구마','손전등','도마','레몬','막대사탕','냥이 책','모기향','양말','선글라스']
         let model_list = [
             {
                 name : "아이스크림",
-                background: "#111111",
+                background: "#c095d4",
                 location : "001_icecream"
             },{
                 name : "커피잔",
-                background: "#555555",
+                background: "#ff9b6d",
                 location : "002_coffee"
             },{
                 name : "생수병",
-                background: "#111111",
+                background: "#7ebbe4",
                 location : "003_waterBottle"
             },{
                 name : "화분",
-                background: "#111111",
+                background: "#915e5e",
                 location : "005_pot"
             },{
                 name : "고구마",
-                background: "#111111",
+                background: "#5c4242",
                 location : "006_sweetPotato"
             },{
                 name : "손전등",
@@ -90,31 +98,31 @@
                 location : "007_light"
             },{
                 name : "도마",
-                background: "#111111",
+                background: "#9bb6d4",
                 location : "008_woodPlane"
             },{
                 name : "레몬",
-                background: "#111111",
+                background: "#c3f8a4",
                 location : "009_lemon"
             },{
                 name : "막대사탕",
-                background: "#111111",
+                background: "#fff783",
                 location : "010_stickCandy"
             },{
                 name : "책이다냥",
-                background: "#111111",
+                background: "#6d7bff",
                 location : "011_catBook"
             },{
                 name : "모기향",
-                background: "#111111",
+                background: "#ffe6b8",
                 location : "012_mosquitoRepellent"
             },{
                 name : "양말",
-                background: "#111111",
+                background: "#ff9292",
                 location : "013_socks"
             },{
-                name : "선슬라스",
-                background: "#111111",
+                name : "선글라스",
+                background: "#92ff9b",
                 location : "014_sunglass"
             },
         ]
@@ -125,16 +133,17 @@
             } else {
                 now_obj -= 1
             }
-            console.log(now_obj)
+            // 장면 업데이트?하기
             needUpdate = true;
         }
         function next(){
-            if (now_obj + 1 > model_list.length){
+            if (now_obj + 1 >= model_list.length){
                 now_obj = 0
             } else {
                 now_obj += 1
             }
-            console.log(now_obj)
+            console.log(`${now_obj + 1}, ${model_list.length}`)
+            // 장면 업데이트?하기
             needUpdate = true;
         }
     </script>
@@ -142,7 +151,7 @@
         import {GLTFLoader} from 'GLTFLoader';
         import * as THREE from 'three';
         
-        const title = document.querySelector('#canvas')
+        const title = document.querySelector('#title')
         let scene = new THREE.Scene();
         const canvas = document.querySelector('#canvas')
         let renderer = new THREE.WebGLRenderer({
@@ -159,7 +168,7 @@
         let loader = new GLTFLoader();
         let object;
 
-        loader.load('resource/3dModel/001_icecream.gltf', function (gltf) {
+        loader.load('resource/3dModel/002_coffee.gltf', function (gltf) {
             object = gltf.scene;
             scene.add(object);
             renderer.render(scene, camera);
@@ -188,6 +197,8 @@
                 object.rotation.y += deltaMoveX * 0.005;
                 object.rotation.x += deltaMoveY * 0.005;
 
+                notDragTime = 0;
+
                 renderer.render(scene, camera);
 
                 previousTouchEvent = currentTouchEvent;
@@ -200,8 +211,12 @@
             function animate(){
                 requestAnimationFrame(animate)
                 if (!isDragging) {
-                    // 터치 드래그 중이 아닐 때 회전
-                    object.rotation.y -= 0.01;
+                    if(notDragTime == 100){
+                        // 드래그를 멈추면 회전시작
+                        object.rotation.y += 0.01;
+                    } else {
+                        notDragTime += 1;
+                    }
                 }
 
                 if(needUpdate){
@@ -209,9 +224,13 @@
                     loader.load(`resource/3dModel/${model_list[now_obj].location}.gltf`, function (gltf2){
                         scene = new THREE.Scene();
                         object = gltf2.scene;
+                        title.innerHTML = model_list[now_obj].name;
+                        document.body.style.backgroundColor = model_list[now_obj].background;
                         scene.add(object);
                     });
 
+                    // 오브젝트 회전하게 하기
+                    notDragTime = 100;
                     needUpdate = false;
                 }
                 

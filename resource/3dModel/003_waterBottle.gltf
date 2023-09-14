@@ -9,7 +9,9 @@
 			"name":"Scene",
 			"nodes":[
 				0,
-				1
+				1,
+				2,
+				3
 			]
 		}
 	],
@@ -24,64 +26,26 @@
 		},
 		{
 			"mesh":0,
-			"name":"Water Bottle",
-			"rotation":[
-				0.13052619993686676,
-				0,
-				0,
-				0.9914448857307434
-			]
-		}
-	],
-	"animations":[
+			"name":"Water Bottle"
+		},
 		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":1,
-						"path":"rotation"
-					}
-				}
-			],
-			"name":"Water BottleAction",
-			"samplers":[
-				{
-					"input":12,
-					"interpolation":"LINEAR",
-					"output":13
-				}
-			]
+			"mesh":1,
+			"name":"Water Bottle.001"
+		},
+		{
+			"mesh":2,
+			"name":"Water Bottle.002"
 		}
 	],
 	"materials":[
 		{
-			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"emissiveFactor":[
 				0.5054866075515747,
 				0.7398462891578674,
 				1
 			],
-			"name":"Trans",
-			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0,
-					0,
-					0,
-					1
-				]
-			}
-		},
-		{
-			"alphaMode":"BLEND",
-			"doubleSided":true,
-			"emissiveFactor":[
-				0.11218634992837906,
-				0.282439261674881,
-				1
-			],
-			"name":"Top",
+			"name":"Trans.001",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0,
@@ -99,7 +63,25 @@
 				0.53475421667099,
 				1
 			],
-			"name":"Label",
+			"name":"Label.001",
+			"pbrMetallicRoughness":{
+				"baseColorFactor":[
+					0,
+					0,
+					0,
+					1
+				]
+			}
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"emissiveFactor":[
+				0.11218634992837906,
+				0.282439261674881,
+				1
+			],
+			"name":"Top.001",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0,
@@ -112,7 +94,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Plane",
+			"name":"Plane.003",
 			"primitives":[
 				{
 					"attributes":{
@@ -122,7 +104,12 @@
 					},
 					"indices":3,
 					"material":0
-				},
+				}
+			]
+		},
+		{
+			"name":"Plane.004",
+			"primitives":[
 				{
 					"attributes":{
 						"POSITION":4,
@@ -131,7 +118,12 @@
 					},
 					"indices":7,
 					"material":1
-				},
+				}
+			]
+		},
+		{
+			"name":"Plane.005",
+			"primitives":[
 				{
 					"attributes":{
 						"POSITION":8,
@@ -182,6 +174,40 @@
 		{
 			"bufferView":4,
 			"componentType":5126,
+			"count":96,
+			"max":[
+				1.0499999523162842,
+				1.7000000476837158,
+				1.0499999523162842
+			],
+			"min":[
+				-1.0499999523162842,
+				0.18285107612609863,
+				-1.0499999523162842
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":5,
+			"componentType":5126,
+			"count":96,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":6,
+			"componentType":5126,
+			"count":96,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":7,
+			"componentType":5123,
+			"count":192,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":8,
+			"componentType":5126,
 			"count":48,
 			"max":[
 				0.43200016021728516,
@@ -196,74 +222,22 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":5,
-			"componentType":5126,
-			"count":48,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":6,
-			"componentType":5126,
-			"count":48,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":7,
-			"componentType":5123,
-			"count":84,
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":8,
-			"componentType":5126,
-			"count":32,
-			"max":[
-				1.0499999523162842,
-				1.7000000476837158,
-				1.0499999523162842
-			],
-			"min":[
-				-1.0499999523162842,
-				0.18285107612609863,
-				-1.0499999523162842
-			],
-			"type":"VEC3"
-		},
-		{
 			"bufferView":9,
 			"componentType":5126,
-			"count":32,
+			"count":48,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":10,
 			"componentType":5126,
-			"count":32,
+			"count":48,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":11,
 			"componentType":5123,
-			"count":48,
+			"count":84,
 			"type":"SCALAR"
-		},
-		{
-			"bufferView":12,
-			"componentType":5126,
-			"count":101,
-			"max":[
-				4.166666666666667
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":13,
-			"componentType":5126,
-			"count":101,
-			"type":"VEC4"
 		}
 	],
 	"bufferViews":[
@@ -293,66 +267,56 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":576,
+			"byteLength":1152,
 			"byteOffset":5672,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":576,
-			"byteOffset":6248,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":384,
+			"byteLength":1152,
 			"byteOffset":6824,
 			"target":34962
 		},
 		{
 			"buffer":0,
+			"byteLength":768,
+			"byteOffset":7976,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":384,
+			"byteOffset":8744,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":576,
+			"byteOffset":9128,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":576,
+			"byteOffset":9704,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":384,
+			"byteOffset":10280,
+			"target":34962
+		},
+		{
+			"buffer":0,
 			"byteLength":168,
-			"byteOffset":7208,
+			"byteOffset":10664,
 			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":384,
-			"byteOffset":7376,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":384,
-			"byteOffset":7760,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":256,
-			"byteOffset":8144,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":96,
-			"byteOffset":8400,
-			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":404,
-			"byteOffset":8496
-		},
-		{
-			"buffer":0,
-			"byteLength":1616,
-			"byteOffset":8900
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":10516,
+			"byteLength":10832,
 			"uri":"003_waterBottle.bin"
 		}
 	]

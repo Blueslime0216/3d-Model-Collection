@@ -8,63 +8,24 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0,
-				1,
-				2
+				0
 			]
 		}
 	],
 	"nodes":[
 		{
-			"name":"Outline",
-			"translation":[
-				-19,
-				0,
-				0
-			]
-		},
-		{
 			"mesh":0,
 			"name":"Cube",
 			"rotation":[
-				-0.018180927261710167,
-				-0.02561432123184204,
-				0.578526496887207,
-				0.8150585889816284
+				0,
+				0,
+				0.7071068286895752,
+				0.7071068286895752
 			],
 			"scale":[
-				2.4687697887420654,
-				2.4687693119049072,
-				2.4687697887420654
-			]
-		},
-		{
-			"name":"Empty",
-			"scale":[
-				10,
-				10,
-				10
-			]
-		}
-	],
-	"animations":[
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":2,
-						"path":"rotation"
-					}
-				}
-			],
-			"name":"EmptyAction",
-			"samplers":[
-				{
-					"input":12,
-					"interpolation":"LINEAR",
-					"output":13
-				}
+				2.000000238418579,
+				2,
+				2.000000238418579
 			]
 		}
 	],
@@ -257,24 +218,6 @@
 			"componentType":5123,
 			"count":90,
 			"type":"SCALAR"
-		},
-		{
-			"bufferView":12,
-			"componentType":5126,
-			"count":101,
-			"max":[
-				4.166666666666667
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":13,
-			"componentType":5126,
-			"count":101,
-			"type":"VEC4"
 		}
 	],
 	"bufferViews":[
@@ -349,21 +292,11 @@
 			"byteLength":180,
 			"byteOffset":11652,
 			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":404,
-			"byteOffset":11832
-		},
-		{
-			"buffer":0,
-			"byteLength":1616,
-			"byteOffset":12236
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":13852,
+			"byteLength":11832,
 			"uri":"011_catBook.bin"
 		}
 	]
